@@ -31,14 +31,13 @@ import com.acg.t1prog2.Views.Turma.ListarTurmaView;
 import com.acg.t1prog2.Views.Turma.RemoverTurmaView;
 import java.time.LocalDate;
 
-
-public class App extends javax.swing.JFrame {
- 
-    //Início inicialização do JFrame
-    public App() { 
-        initComponents();
-    }
+public class App extends javax.swing.JFrame {    
     
+    //Início inicialização do JFrame
+    public App() {
+        initComponents();   
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -46,6 +45,7 @@ public class App extends javax.swing.JFrame {
         jpApp = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         mbInicial = new javax.swing.JMenuBar();
         mnSelecionarInicial = new javax.swing.JMenu();
         mnGinasios = new javax.swing.JMenu();
@@ -110,6 +110,8 @@ public class App extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Data: " + dia + "/" + mes + "/" + currentdate.getYear());
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Logo.png"))); // NOI18N
+
         javax.swing.GroupLayout jpAppLayout = new javax.swing.GroupLayout(jpApp);
         jpApp.setLayout(jpAppLayout);
         jpAppLayout.setHorizontalGroup(
@@ -119,12 +121,18 @@ public class App extends javax.swing.JFrame {
                 .addGroup(jpAppLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
-                .addGap(628, 628, 628))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAppLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
         jpAppLayout.setVerticalGroup(
             jpAppLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAppLayout.createSequentialGroup()
-                .addGap(344, 344, 344)
+                .addGap(88, 88, 88)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel1)
                 .addGap(6, 6, 6)
                 .addComponent(jLabel2))
@@ -408,179 +416,177 @@ public class App extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     //Fim inicialização do JFrame
-    
-    
+
     //Início de eventos de Abertura de telas do Ginásio
     private void mnCadastrarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastrarGinasioActionPerformed
         CadastrarGinasioView cg = new CadastrarGinasioView();
-        
+
         cg.setVisible(true);
     }//GEN-LAST:event_mnCadastrarGinasioActionPerformed
 
     private void mnListarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListarGinasioActionPerformed
         ListarGinasioView lg = new ListarGinasioView();
-        
+
         lg.setVisible(true);
     }//GEN-LAST:event_mnListarGinasioActionPerformed
 
     private void mnEditarGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarGinasioActionPerformed
         EditarGinasioView eg = new EditarGinasioView();
-        
+
         eg.setVisible(true);
     }//GEN-LAST:event_mnEditarGinasioActionPerformed
 
     private void mnRemoverGinasioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRemoverGinasioActionPerformed
         RemoverGinasioView rg = new RemoverGinasioView();
-        
+
         rg.setVisible(true);
     }//GEN-LAST:event_mnRemoverGinasioActionPerformed
     //Fim de eventos de Abertura de telas do Ginásio
-    
-    
+
     //Início de eventos de Abertura de telas de Equipamentos
     private void mnCadastrarEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastrarEquipamentosActionPerformed
         CadastrarEquipamentoView ce = new CadastrarEquipamentoView();
-        
+
         ce.setVisible(true);
     }//GEN-LAST:event_mnCadastrarEquipamentosActionPerformed
 
     private void mnListarEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListarEquipamentosActionPerformed
         ListarEquipamentoView le = new ListarEquipamentoView();
-        
+
         le.setVisible(true);
     }//GEN-LAST:event_mnListarEquipamentosActionPerformed
 
     private void mnEditarEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarEquipamentosActionPerformed
         EditarEquipamentoView ee = new EditarEquipamentoView();
-        
+
         ee.setVisible(true);
     }//GEN-LAST:event_mnEditarEquipamentosActionPerformed
 
     private void mnRemoverEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRemoverEquipamentosActionPerformed
         RemoverEquipamentoView re = new RemoverEquipamentoView();
-        
+
         re.setVisible(true);
     }//GEN-LAST:event_mnRemoverEquipamentosActionPerformed
     //Fim de eventos de Abertura de telas de Equipamentos
-    
+
     //Início de eventos de Abertura de telas de Turmas
     private void mnCadastrarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnCadastrarTurmaActionPerformed
         CadastrarTurmaView ct = new CadastrarTurmaView();
-        
+
         ct.setVisible(true);
     }//GEN-LAST:event_mnCadastrarTurmaActionPerformed
 
     private void mnListarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnListarTurmaActionPerformed
         ListarTurmaView lt = new ListarTurmaView();
-        
+
         lt.setVisible(true);
     }//GEN-LAST:event_mnListarTurmaActionPerformed
 
     private void mnEditarTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarTurmaActionPerformed
         EditarTurmaView et = new EditarTurmaView();
-        
+
         et.setVisible(true);
     }//GEN-LAST:event_mnEditarTurmaActionPerformed
 
     private void mnRemoverTurmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnRemoverTurmaActionPerformed
         RemoverTurmaView rt = new RemoverTurmaView();
-        
+
         rt.setVisible(true);
     }//GEN-LAST:event_mnRemoverTurmaActionPerformed
 
     //Início de eventos de Abertura de telas de Pessoas
     private void miCadastrarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarPessoaActionPerformed
         CadastrarPessoaView cpv = new CadastrarPessoaView();
-        
+
         cpv.setVisible(true);
     }//GEN-LAST:event_miCadastrarPessoaActionPerformed
 
     private void miListarPessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miListarPessoasActionPerformed
         ListarPessoaView lpv = new ListarPessoaView();
-        
+
         lpv.setVisible(true);
     }//GEN-LAST:event_miListarPessoasActionPerformed
 
     private void miEditarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEditarPessoaActionPerformed
         EditarPessoaView epv = new EditarPessoaView();
-        
+
         epv.setVisible(true);
     }//GEN-LAST:event_miEditarPessoaActionPerformed
 
     private void miRemoverPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRemoverPessoaActionPerformed
         RemoverPessoaView rpv = new RemoverPessoaView();
-        
+
         rpv.setVisible(true);
     }//GEN-LAST:event_miRemoverPessoaActionPerformed
     //Fim de eventos de Abertura de telas de Turmas
-    
+
     private void mnAssociarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAssociarEquipamentoActionPerformed
         AssociarEquipamentoView aev = new AssociarEquipamentoView();
-        
+
         aev.setVisible(true);
     }//GEN-LAST:event_mnAssociarEquipamentoActionPerformed
 
     private void mnBuscarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBuscarEquipamentoActionPerformed
         BuscarEquipamentoView bev = new BuscarEquipamentoView();
-        
+
         bev.setVisible(true);
     }//GEN-LAST:event_mnBuscarEquipamentoActionPerformed
 
     private void miCadastrarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarAlunoActionPerformed
         CadastrarAlunoTurmaView catv = new CadastrarAlunoTurmaView();
-        
+
         catv.setVisible(true);
     }//GEN-LAST:event_miCadastrarAlunoActionPerformed
 
     private void miAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAlunoActionPerformed
         CalcularMensalidadeAlunoView cmav = new CalcularMensalidadeAlunoView();
-        
+
         cmav.setVisible(true);
     }//GEN-LAST:event_miAlunoActionPerformed
 
     private void miProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miProfessorActionPerformed
         CalcularSalarioProfessorView cspf = new CalcularSalarioProfessorView();
-        
+
         cspf.setVisible(true);
     }//GEN-LAST:event_miProfessorActionPerformed
 
     private void miTurmasAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miTurmasAlunoActionPerformed
         TurmasAlunoView tav = new TurmasAlunoView();
-        
+
         tav.setVisible(true);
     }//GEN-LAST:event_miTurmasAlunoActionPerformed
 
     private void reservarGinasio(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservarGinasio
         ReservarGinasioView rgv = new ReservarGinasioView();
-        
+
         rgv.setVisible(true);
     }//GEN-LAST:event_reservarGinasio
 
     private void listarReservas(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarReservas
         ListarReservasGinasioView lrgv = new ListarReservasGinasioView();
-        
+
         lrgv.setVisible(true);
     }//GEN-LAST:event_listarReservas
 
     private void mostrarRegrasSimulacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarRegrasSimulacao
         RegrasSimulacaoView rsv = new RegrasSimulacaoView();
-        
+
         rsv.setVisible(true);
     }//GEN-LAST:event_mostrarRegrasSimulacao
-    
-    
-    
+ 
     //Início Método Main
     public static void main(String args[]) {
-        App app = new App();   
+        App app = new App();    
+        
         app.setVisible(true);
     }
     //Fim Método Main
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jpApp;
     private javax.swing.JMenuBar mbInicial;
     private javax.swing.JMenuItem miAluno;
