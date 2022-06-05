@@ -4,7 +4,9 @@
  */
 package com.acg.t1prog2.Models.Esportes;
 
+import com.acg.t1prog2.DAO.LanceDAO;
 import com.acg.t1prog2.Models.Esporte;
+import com.acg.t1prog2.Models.Lance;
 
 public class Futebol extends Esporte {
 
@@ -13,10 +15,39 @@ public class Futebol extends Esporte {
     }
 
     @Override
-    public String simularPartida() {
-        return "O jogador dribla o primeiro e avança pela ponta "
-                + "\nFaz o cruzamento para o atacante que cabeceia a bola e..."
-                + "\nGOOOOOOOl!!!\n";
+    public void gerarSimulacao() {
+        Lance l1 = new Lance();
+        Lance l2 = new Lance();
+        Lance l3 = new Lance();
+        
+        LanceDAO lanceDAO = new LanceDAO();
+        
+        l1.setEsporte(this);
+        l2.setEsporte(this);
+        l3.setEsporte(this);
+        
+        l1.setLance(
+            "O jogador dribla o primeiro e avança pela ponta\n" +
+"           Faz o cruzamento para o atacante que cabeceia a bola e..." +
+"           \nGOOOOOOOl!!!\n"
+        );
+        
+        l2.setLance(
+             "O time recupera a bola na defesa e inicia o contra-ataque em alta velocidade\n"
+                     + "os dois atacantes tabelam entre si e passam pela defesa adversária\n"
+                     + "O jogador finaliza e GOOOOOLL!\n"   
+        );
+        
+        l3.setLance(
+             "O júiz apita o início do jogo\n"
+                     + "O atacante avança rapidamente para tentar recuperar a bola e dá um carrinho!"
+                     + "XIIII!! CARTÃO VERMELHO COM 15 SEGUNDOS DE JOGO"
+        );
+        
+        lanceDAO.salvarLance(l1);
+        lanceDAO.salvarLance(l2);
+        lanceDAO.salvarLance(l3);
+        
     }
 
     @Override
@@ -34,13 +65,8 @@ public class Futebol extends Esporte {
         
         return e.regras();
     }
-    
-    public static String mostrarSimulacao() {
-        Esporte e = new Futebol(22);
-        
-        return e.simularPartida();
-    }
 
+    
     @Override
     public String toString() {
         return super.toString() + " Futebol";

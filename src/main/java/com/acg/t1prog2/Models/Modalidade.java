@@ -6,6 +6,6 @@ package com.acg.t1prog2.Models;
 
 public interface Modalidade {
     
-    public String simularPartida();
+    public void gerarSimulacao();
     public String regras();
 }

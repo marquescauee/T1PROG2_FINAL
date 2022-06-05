@@ -4,13 +4,18 @@
  */
 package com.acg.t1prog2.Views.Esporte;
 
+import com.acg.t1prog2.DAO.LanceDAO;
+import com.acg.t1prog2.Models.Esporte;
 import com.acg.t1prog2.Models.Esportes.Basquete;
 import com.acg.t1prog2.Models.Esportes.Futebol;
 import com.acg.t1prog2.Models.Esportes.Natacao;
 import com.acg.t1prog2.Models.Esportes.Volei;
+import com.acg.t1prog2.Models.Lance;
 
 public class RegrasSimulacaoView extends javax.swing.JFrame {
-    
+
+    private LanceDAO lanceDAO = new LanceDAO();
+
     public RegrasSimulacaoView() {
         initComponents();
     }
@@ -234,58 +239,94 @@ public class RegrasSimulacaoView extends javax.swing.JFrame {
     private void exibirRegrasFut(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirRegrasFut
         //Opção 1 - metodo estatico que instancia um objeto
         taExibir.append(Futebol.mostrarRegras());
-        
-        
+
         taExibir.append("----------------------------------------------\n");
-      
+
     }//GEN-LAST:event_exibirRegrasFut
 
     private void exibirRegrasBasquete(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirRegrasBasquete
         taExibir.append(Basquete.mostrarRegras());
-        
+
         taExibir.append("----------------------------------------------\n");
-       
+
     }//GEN-LAST:event_exibirRegrasBasquete
 
     private void exibirRegrasVolei(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirRegrasVolei
         taExibir.append(Volei.mostrarRegras());
-        
+
         taExibir.append("----------------------------------------------\n");
 
     }//GEN-LAST:event_exibirRegrasVolei
 
     private void exibirRegrasNatacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exibirRegrasNatacao
         taExibir.append(Natacao.mostrarRegras());
-        
+
         taExibir.append("----------------------------------------------\n");
 
     }//GEN-LAST:event_exibirRegrasNatacao
 
     private void simularPartidaFut(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularPartidaFut
-        taExibir.append(Futebol.mostrarSimulacao());
-        
-        taExibir.append("----------------------------------------------\n");
+        Esporte e = new Futebol(22);
+        e.gerarSimulacao();
 
+        for (int i = 0; i < 100; i++) {
+            int numeroAleatorio = (int) (Math.random() * lanceDAO.recuperarTodosLances().size());
+            Lance lanceFut = lanceDAO.recuperarLance(numeroAleatorio);
+
+            if (lanceFut.getEsporte() instanceof Futebol) {
+                taExibir.append(lanceFut.getLance());
+                taExibir.append("\n----------------------------------------------\n");
+                break;
+            }
+        }
     }//GEN-LAST:event_simularPartidaFut
 
     private void simularPartidaBasq(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularPartidaBasq
-        taExibir.append(Basquete.mostrarSimulacao());
-        
-        taExibir.append("----------------------------------------------\n");
-        
+        Esporte e = new Basquete(22);
+        e.gerarSimulacao();
+
+        for (int i = 0; i < 100; i++) {
+            int numeroAleatorio = (int) (Math.random() * lanceDAO.recuperarTodosLances().size());
+            Lance lanceFut = lanceDAO.recuperarLance(numeroAleatorio);
+
+            if (lanceFut.getEsporte() instanceof Basquete) {
+                taExibir.append(lanceFut.getLance());
+                taExibir.append("\n----------------------------------------------\n");
+                break;
+            }
+        }
     }//GEN-LAST:event_simularPartidaBasq
 
     private void simularPartidaVolei(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularPartidaVolei
-        taExibir.append(Volei.mostrarSimulacao());
-        
-        taExibir.append("----------------------------------------------\n");
+        Esporte e = new Volei(22);
+        e.gerarSimulacao();
 
+        for (int i = 0; i < 100; i++) {
+            int numeroAleatorio = (int) (Math.random() * lanceDAO.recuperarTodosLances().size());
+            Lance lanceFut = lanceDAO.recuperarLance(numeroAleatorio);
+
+            if (lanceFut.getEsporte() instanceof Volei) {
+                taExibir.append(lanceFut.getLance());
+                taExibir.append("\n----------------------------------------------\n");
+                break;
+            }
+        }
     }//GEN-LAST:event_simularPartidaVolei
 
     private void simularPartidaNatacao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simularPartidaNatacao
-        taExibir.append(Natacao.mostrarSimulacao());
-        
-        taExibir.append("----------------------------------------------\n");
+        Esporte e = new Natacao(22);
+        e.gerarSimulacao();
+
+        for (int i = 0; i < 100; i++) {
+            int numeroAleatorio = (int) (Math.random() * lanceDAO.recuperarTodosLances().size());
+            Lance lanceFut = lanceDAO.recuperarLance(numeroAleatorio);
+
+            if (lanceFut.getEsporte() instanceof Natacao) {
+                taExibir.append(lanceFut.getLance());
+                taExibir.append("\n----------------------------------------------\n");
+                break;
+            }
+        }    
 
     }//GEN-LAST:event_simularPartidaNatacao
 
@@ -293,7 +334,6 @@ public class RegrasSimulacaoView extends javax.swing.JFrame {
         taExibir.setText("");
     }//GEN-LAST:event_limparTela
 
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btRegraBasquete;
     private java.awt.Button btRegraFut;

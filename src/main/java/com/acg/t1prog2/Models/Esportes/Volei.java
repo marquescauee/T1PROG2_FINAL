@@ -4,21 +4,51 @@
  */
 package com.acg.t1prog2.Models.Esportes;
 
+import com.acg.t1prog2.DAO.LanceDAO;
 import com.acg.t1prog2.Models.Esporte;
+import com.acg.t1prog2.Models.Lance;
 
 public class Volei extends Esporte {
 
     public Volei(int qtdParticipantes) {
         super(qtdParticipantes);
     }
-  
+    
     @Override
-    public String simularPartida() {
-        return "É o ponto decisivo!! a Equipe 1 vence o jogo por 24x23 e está ganhando a partida por 2 sets a 1"
+    public void gerarSimulacao() {
+        Lance l1 = new Lance();
+        Lance l2 = new Lance();
+        Lance l3 = new Lance();
+        
+        LanceDAO lanceDAO = new LanceDAO();
+        
+        l1.setEsporte(this);
+        l2.setEsporte(this);
+        l3.setEsporte(this);
+        
+        l1.setLance(
+            "É o ponto decisivo!! a Equipe 1 vence o jogo por 24x23 e está ganhando a partida por 2 sets a 1"
                 + "\nO jogador da equipe 2 faz o saque e a equipe 1 recepciona bem!"
                 + "\nO levantamento é feito e o jogador desce o braço na barreira adversária!! BLOQUEADO!!"
                 + "\nA equipe tenta novamente, o levantamento é feito para o mesmo jogador!"
-                + "\nO jogador desce o braço novamente e crava a bola no chão!!! É CAMPEÃO!!!\n";
+                + "\nO jogador desce o braço novamente e crava a bola no chão!!! É CAMPEÃO!!!\n"
+        );
+        
+        l2.setLance(
+             "O Brasil vai no saque. É ele..."
+                     + "\nLUCARELLI!! É ACE DO BRASIL!" 
+        );
+        
+        l3.setLance(
+             "O Brasil segue vencendo o jogo por 2 a 0."
+                     + "\nO time adversário vem pra jogada!"
+                     + "\nBRUNINHO NO BLOQUEIO!!!"
+        );
+        
+        lanceDAO.salvarLance(l1);
+        lanceDAO.salvarLance(l2);
+        lanceDAO.salvarLance(l3);
+        
     }
 
     @Override
@@ -35,12 +65,6 @@ public class Volei extends Esporte {
         Esporte e = new Volei(12);
         
         return e.regras();
-    }
-    
-    public static String mostrarSimulacao() {
-        Esporte e = new Volei(12);
-        
-        return e.simularPartida();
     }
     
     @Override

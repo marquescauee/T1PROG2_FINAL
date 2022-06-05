@@ -4,20 +4,14 @@
  */
 package com.acg.t1prog2.Models.Esportes;
 
+import com.acg.t1prog2.DAO.LanceDAO;
 import com.acg.t1prog2.Models.Esporte;
+import com.acg.t1prog2.Models.Lance;
 
 public class Basquete extends Esporte {
     
     public Basquete(int qtdParticipantes) {
         super(qtdParticipantes);
-    }
-    
-    @Override
-    public String simularPartida() {
-        return "Falta 3 segundos para o fim do jogo..."
-                + "\nA única chance de vitória é o jogador arremessar de onde ele está"
-                + "\nEle arremessa a bola e o tempo acabar e..."
-                + "\nCESTA!!! O TIME É CAMPEÃO!!!\n";
     }
 
     @Override
@@ -30,17 +24,50 @@ public class Basquete extends Esporte {
                 + "\nO tempo de jogo deve ser de quatro períodos de 10 minutos cada, com 15 minutos de descanso entre o segundo e terceiro período.\n";
     }
     
+    @Override
+    public void gerarSimulacao() {
+        Lance l1 = new Lance();
+        Lance l2 = new Lance();
+        Lance l3 = new Lance();
+        
+        LanceDAO lanceDAO = new LanceDAO();
+        
+        l1.setEsporte(this);
+        l2.setEsporte(this);
+        l3.setEsporte(this);
+        
+        l1.setLance(
+            "Faltam 3 segundos para o fim do jogo..."
+            + "\nA única chance de vitória é o jogador arremessar de onde ele está"
+            + "\nEle arremessa a bola e o tempo acabar e..."
+            + "\nCESTA!!! O TIME É CAMPEÃO!!!\n"
+        );
+        
+        l2.setLance(
+            "O jogador avança em velocidade em direção à cesta"
+                    + "\nDeixou o primeiro pra trás!!"
+                    + "\nPassou pelo segundo!"
+                    + "\nELE ENTERRA A CESTA!! QUE JOGADOR É ESSE?"   
+        );
+        
+        l3.setLance(
+             "HOJE ELE TÁ IMPOSSÍVEL!!!"
+                     + "\nSÃO 36 PONTOS SÓ COM CESTA DE 3"
+                     + "\nALGUÉM PARA ESSE HOMEM!"
+        );
+        
+        lanceDAO.salvarLance(l1);
+        lanceDAO.salvarLance(l2);
+        lanceDAO.salvarLance(l3);
+        
+    }
+    
     public static String mostrarRegras() {
         Esporte e = new Basquete(10);
         
         return e.regras();
     }
-    
-    public static String mostrarSimulacao() {
-        Esporte e = new Basquete(10);
-        
-        return e.simularPartida();
-    }
+
     
     @Override
     public String toString() {

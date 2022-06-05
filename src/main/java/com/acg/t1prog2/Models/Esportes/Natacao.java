@@ -4,7 +4,9 @@
  */
 package com.acg.t1prog2.Models.Esportes;
 
+import com.acg.t1prog2.DAO.LanceDAO;
 import com.acg.t1prog2.Models.Esporte;
+import com.acg.t1prog2.Models.Lance;
 
 public class Natacao extends Esporte {
 
@@ -13,13 +15,42 @@ public class Natacao extends Esporte {
     }
 
     @Override
-    public String simularPartida() {
-        return "O nadador da raia 6 segue na liderança desde o início da prova, porém o nadador da raia 4 ainda não entregou a medalha"
+    public void gerarSimulacao() {
+        Lance l1 = new Lance();
+        Lance l2 = new Lance();
+        Lance l3 = new Lance();
+        
+        LanceDAO lanceDAO = new LanceDAO();
+        
+        l1.setEsporte(this);
+        l2.setEsporte(this);
+        l3.setEsporte(this);
+        
+        l1.setLance(
+            "O nadador da raia 6 segue na liderança desde o início da prova, porém o nadador da raia 4 ainda não entregou a medalha"
                 + "\nÉ hora de decisão: o nadador 6 e 4 disputam a primeira colocação..."
                 + "\nMas calma! o nadador da raia 2 surpreende e vem com toda a vontade para a briga"
-                + "\nÉ IMPRESSIONANTE! O NADADOR DA RAIA 2 ULTRAPASSA OS OUTROS DOIS COMPETIDORES E CONQUISTA O OURO!!!\n";
+                + "\nÉ IMPRESSIONANTE! O NADADOR DA RAIA 2 ULTRAPASSA OS OUTROS DOIS COMPETIDORES E CONQUISTA O OURO!!!\n"
+        );
+        
+        l2.setLance(
+             "Os EUA estão perdendo no revezamento para a Austrália."
+                     + "\nOs últimos competidores se preparam para o salto na água."
+                     + "\nÉ ELE! MICHAEL PHELPS SALTA NA ÁGUA EM ALTA VELOCIDADE!! "
+                     + "\nINACREDITÁVEL!! ELE ULTRAPASSA O AUSTRALIANO E O EUA VENCE A COMPETIÇÃO"  
+        );
+        
+        l3.setLance(
+             "Michael Phelps conquista mais uma medalha de ouro."
+                     + "\nIsso não existe! São 8 medalhas de ouro em uma única olimpíada!"
+        );
+        
+        lanceDAO.salvarLance(l1);
+        lanceDAO.salvarLance(l2);
+        lanceDAO.salvarLance(l3);
+        
     }
-
+    
     @Override
     public String regras() {
         return "Para uma competição de natação olímpica, deve-se cumprir os seguintes requisitos:"
@@ -34,12 +65,6 @@ public class Natacao extends Esporte {
         Esporte e = new Natacao(8);
         
         return e.regras();
-    }
-    
-    public static String mostrarSimulacao() {
-        Esporte e = new Natacao(8);
-        
-        return e.simularPartida();
     }
     
     @Override
