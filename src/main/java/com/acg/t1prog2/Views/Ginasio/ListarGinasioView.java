@@ -62,7 +62,7 @@ public class ListarGinasioView extends javax.swing.JFrame {
             
             taGinasios.append(ginasio + "\n");
             
-            for(Equipamento equip : ginasio.getListaEquips()) {
+            for(Equipamento equip : ginasio.getListaEquipamentos()) {
                 taGinasios.append(equip + "\n");
             }
             

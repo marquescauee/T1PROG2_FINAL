@@ -94,7 +94,7 @@ public class AssociarEquipamentoView extends javax.swing.JFrame {
         Equipamento tempEquip = (Equipamento) this.cbEquipamento.getSelectedItem();
         Ginasio tempGinasio = (Ginasio) this.cbGinasio.getSelectedItem();
  
-        tempGinasio.getListaEquips().add(tempEquip);
+        tempGinasio.getListaEquipamentos().add(tempEquip);
         tempGinasio.addEquipamentoMap(tempEquip);
         
         JOptionPane.showMessageDialog(null, "Associação realizada com sucesso!");

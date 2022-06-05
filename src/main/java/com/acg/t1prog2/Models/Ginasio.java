@@ -18,17 +18,21 @@ public class Ginasio {
     private String endereco;
     
     private Set<Esporte> listaEsportes;
-    private Set<Equipamento> listaEquipamentos;
     private Map<String, Equipamento> mapEquipCodigo;
     
     public Ginasio() {
-        this.listaEquipamentos = new HashSet<>();
         this.listaEsportes = new HashSet<>();
         this.mapEquipCodigo = new HashMap<>();
     }
 
-    public Set<Equipamento> getListaEquips() {
-        return this.listaEquipamentos;
+    public Set<Equipamento> getListaEquipamentos() {
+        Set<Equipamento> listaEquips = new HashSet<>();
+        
+        for(Map.Entry<String, Equipamento> equip : this.mapEquipCodigo.entrySet()) {
+            listaEquips.add(equip.getValue());
+        }
+        
+        return listaEquips;
     }
     
     public void addEquipamentoMap(Equipamento equipamento) {
