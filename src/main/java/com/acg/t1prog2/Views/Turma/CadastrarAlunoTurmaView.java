@@ -124,6 +124,7 @@ public class CadastrarAlunoTurmaView extends javax.swing.JFrame {
             naoExisteAlunoNaTurma(tempTurma, tempAluno);
 
             salvarAlunoNaTurma(tempTurma, tempAluno);
+            tempAluno.getListaMensalidades().add(tempMens);
             JOptionPane.showMessageDialog(null, "Aluno cadastrado na turma com sucesso!");
 
         } catch (CadastroTurmaException ex) {

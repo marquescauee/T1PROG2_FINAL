@@ -4,6 +4,7 @@
  */
 package com.acg.t1prog2.Views;
 
+import com.acg.t1prog2.Models.Ginasio;
 import com.acg.t1prog2.Views.Equipamento.CadastrarEquipamentoView;
 import com.acg.t1prog2.Views.Equipamento.EditarEquipamentoView;
 import com.acg.t1prog2.Views.Equipamento.ListarEquipamentoView;

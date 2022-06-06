@@ -10,7 +10,7 @@ public class Professor extends Pessoa {
     
     public Professor() {
         super();
-        this.valorAula = 50;
+        this.valorAula = 200;
     }
     
     public double getHoraAula() {
