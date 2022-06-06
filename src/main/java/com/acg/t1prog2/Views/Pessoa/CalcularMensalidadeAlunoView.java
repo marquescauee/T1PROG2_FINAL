@@ -92,7 +92,7 @@ public class CalcularMensalidadeAlunoView extends javax.swing.JFrame {
         
         double mensalidadeTotal = tempAluno.calcularMensalidade();
         
-        taMensalidades.append("Valor total: " + String.valueOf(mensalidadeTotal));
+        taMensalidades.append("Valor total: " + String.valueOf(mensalidadeTotal) + "\n");
     }//GEN-LAST:event_calcularMensalidade
  
     private void popularComboBox() {
