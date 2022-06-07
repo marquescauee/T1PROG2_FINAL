@@ -70,7 +70,7 @@ public class ListarGinasioView extends javax.swing.JFrame {
                 taGinasios.append(esporte + "\n");
             }
             
-            taGinasios.append("---------------------------------------");
+            taGinasios.append("---------------------------------------\n");
         }
     }
     
