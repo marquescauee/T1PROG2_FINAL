@@ -111,7 +111,7 @@ public class CadastrarEquipamentoView extends javax.swing.JFrame {
             addEquipamento(equip);
             JOptionPane.showMessageDialog(null, "Equipamento cadastrado com sucesso!");
             this.limparTela();
-        } catch (IdentificadorUnicoException | CampoVazioException e) {
+        } catch (CampoVazioException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_cadastrarEquipamento

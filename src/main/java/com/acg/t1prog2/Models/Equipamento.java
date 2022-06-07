@@ -5,8 +5,8 @@
 package com.acg.t1prog2.Models;
 
 import com.acg.t1prog2.DAO.EquipamentoDAO;
-import com.acg.t1prog2.Exceptions.IdentificadorUnicoException;
 import com.acg.t1prog2.Exceptions.CampoVazioException;
+import java.util.Objects;
 
 
 public class Equipamento implements Comparable<Equipamento> {
@@ -44,14 +44,8 @@ public class Equipamento implements Comparable<Equipamento> {
         return codigo;
     }
 
-    public void setCodigo(String codigo) throws IdentificadorUnicoException, CampoVazioException {
-        EquipamentoDAO equipDAO = new EquipamentoDAO();
-        
-        for(Equipamento equip : equipDAO.recuperarTodosEquipamentos()) {
-            if(equip.getCodigo().equalsIgnoreCase(codigo)) {
-                throw new IdentificadorUnicoException();
-            }
-        }       
+    public void setCodigo(String codigo) throws CampoVazioException {
+        EquipamentoDAO equipDAO = new EquipamentoDAO();    
         
         if(codigo.isBlank()) {
             throw new CampoVazioException();
@@ -75,5 +69,32 @@ public class Equipamento implements Comparable<Equipamento> {
             return 0;
         }
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Equipamento other = (Equipamento) obj;
+        return Objects.equals(this.codigo, other.codigo);
+    }
+
+    
+
+    
+    
+    
 
 }
